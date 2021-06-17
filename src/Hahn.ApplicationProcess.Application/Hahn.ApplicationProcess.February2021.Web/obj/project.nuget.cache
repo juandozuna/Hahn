@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "I+rqqIAvmNulz+WzHCke1efKMt+UTNZXJ/OgTVcXpsNT4HhggN9n9IxZljhZ/ww6uf7Un1sNl5ue0vGJiKQVaQ==",
+  "success": true,
+  "projectFilePath": "/Users/juandanielozunaespinal/Documents/repositories/HahnInterviewApplication/src/Hahn.ApplicationProcess.Application/Hahn.ApplicationProcess.February2021.Web/Hahn.ApplicationProcess.February2021.Web.csproj",
+  "expectedPackageFiles": [
+    "/Users/juandanielozunaespinal/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/juandanielozunaespinal/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/juandanielozunaespinal/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "/Users/juandanielozunaespinal/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "/Users/juandanielozunaespinal/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "/Users/juandanielozunaespinal/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
