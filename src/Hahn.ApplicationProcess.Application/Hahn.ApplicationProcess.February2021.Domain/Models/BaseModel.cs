@@ -10,7 +10,7 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
-    /// Represents the base model
+    /// Represents the base model   
     /// </summary>
     public abstract class BaseModel
     {
