@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/juandanielozunaespinal/Documents/repositories/HahnInterviewApplication/src/Hahn.ApplicationProcess.Application/Hahn.ApplicationProcess.February2021.Domain/Hahn.ApplicationProcess.February2021.Domain.csproj": {}
+    "C:\\Users\\WEPSYS\\Documents\\repositorios\\Hahn.InterviewApplication\\src\\Hahn.ApplicationProcess.Application\\Hahn.ApplicationProcess.February2021.Domain\\Hahn.ApplicationProcess.February2021.Domain.csproj": {}
   },
   "projects": {
-    "/Users/juandanielozunaespinal/Documents/repositories/HahnInterviewApplication/src/Hahn.ApplicationProcess.Application/Hahn.ApplicationProcess.February2021.Domain/Hahn.ApplicationProcess.February2021.Domain.csproj": {
+    "C:\\Users\\WEPSYS\\Documents\\repositorios\\Hahn.InterviewApplication\\src\\Hahn.ApplicationProcess.Application\\Hahn.ApplicationProcess.February2021.Domain\\Hahn.ApplicationProcess.February2021.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/juandanielozunaespinal/Documents/repositories/HahnInterviewApplication/src/Hahn.ApplicationProcess.Application/Hahn.ApplicationProcess.February2021.Domain/Hahn.ApplicationProcess.February2021.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\WEPSYS\\Documents\\repositorios\\Hahn.InterviewApplication\\src\\Hahn.ApplicationProcess.Application\\Hahn.ApplicationProcess.February2021.Domain\\Hahn.ApplicationProcess.February2021.Domain.csproj",
         "projectName": "Hahn.ApplicationProcess.February2021.Domain",
-        "projectPath": "/Users/juandanielozunaespinal/Documents/repositories/HahnInterviewApplication/src/Hahn.ApplicationProcess.Application/Hahn.ApplicationProcess.February2021.Domain/Hahn.ApplicationProcess.February2021.Domain.csproj",
-        "packagesPath": "/Users/juandanielozunaespinal/.nuget/packages/",
-        "outputPath": "/Users/juandanielozunaespinal/Documents/repositories/HahnInterviewApplication/src/Hahn.ApplicationProcess.Application/Hahn.ApplicationProcess.February2021.Domain/obj/",
+        "projectPath": "C:\\Users\\WEPSYS\\Documents\\repositorios\\Hahn.InterviewApplication\\src\\Hahn.ApplicationProcess.Application\\Hahn.ApplicationProcess.February2021.Domain\\Hahn.ApplicationProcess.February2021.Domain.csproj",
+        "packagesPath": "C:\\Users\\WEPSYS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\WEPSYS\\Documents\\repositorios\\Hahn.InterviewApplication\\src\\Hahn.ApplicationProcess.Application\\Hahn.ApplicationProcess.February2021.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/juandanielozunaespinal/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\WEPSYS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +42,22 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
