@@ -2,6 +2,7 @@
 <module type="RIDER_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/../.." />
+    <content url="file://C:/Users/WEPSYS/Documents/repositorios/Hahn.InterviewApplication/src/Hahn.ApplicationProcess.Application/Hahn.ApplicationProcess.February2021.Data" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
