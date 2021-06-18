@@ -62,9 +62,15 @@ namespace Hahn.ApplicationProcess.February2021.Data.Repositories
         }
 
         /// <inheritdoc />
-        public Task<T> Delete(T entity)
+        public async Task<T> Delete(T entity)
         {
-            throw new NotImplementedException();
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+
+            Entities.Remove(entity);
+
+            await Context.SaveChangesAsync();
+
+            return entity;
         }
 
         /// <inheritdoc />

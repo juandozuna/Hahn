@@ -23,6 +23,9 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Validators
             RuleFor(x => x.PurchaseDate)
                 .GreaterThan(DateTimeOffset.Now.Subtract(TimeSpan.FromDays(366)))
                 .WithMessage("PurchaseDate must not be older than 1 year");
+            
+            
+            //TODO: @juandozuna add country validation
         }
     }
 }
