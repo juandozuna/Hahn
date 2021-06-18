@@ -9,7 +9,7 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Models
     /// Implementation of <see cref="IOperationResult{T}"/>
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class OperationResult<T> : IOperationResult<T>
+    internal sealed class OperationResult<T> : IOperationResult<T>
     {
         /// <inheritdoc />
         public T Data { get;}

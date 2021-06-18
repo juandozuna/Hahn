@@ -14,6 +14,13 @@ using Microsoft.OpenApi.Models;
 
 namespace Hahn.ApplicationProcess.February2021.Web
 {
+    using Data;
+    using Data.Repositories;
+    using Domain.Managers;
+    using Domain.Models;
+    using Domain.Repositories;
+    using Microsoft.EntityFrameworkCore;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -21,17 +28,30 @@ namespace Hahn.ApplicationProcess.February2021.Web
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ConfigureDependencies(services);
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1",
                     new OpenApiInfo {Title = "Hahn.ApplicationProcess.February2021.Web", Version = "v1"});
             });
+
+            services.AddDbContext<HahnDbContext>(
+                opts => opts.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
+        }
+
+
+        public void ConfigureDependencies(IServiceCollection services)
+        {
+            services.AddScoped<IAssetRepository, AssetRepository>();
+
+            services.AddScoped<AssetManager, AssetManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
