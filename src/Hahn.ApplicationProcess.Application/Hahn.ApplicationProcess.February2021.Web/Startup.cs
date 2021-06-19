@@ -43,13 +43,14 @@ namespace Hahn.ApplicationProcess.February2021.Web
             });
 
             services.AddDbContext<HahnDbContext>(
-                opts => opts.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
+                opts => opts.UseSqlServer(Configuration.GetConnectionString("MainConnection")));
         }
 
 
-        public void ConfigureDependencies(IServiceCollection services)
+        private void ConfigureDependencies(IServiceCollection services)
         {
             services.AddScoped<IAssetRepository, AssetRepository>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
 
             services.AddScoped<AssetManager, AssetManager>();
         }

@@ -15,14 +15,17 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
     public sealed class AssetManager
     {
         private readonly IAssetRepository _assetRepository;
+        private readonly ICountryRepository _countryRepository;
 
         /// <summary>
         /// Creates a new instance of <see cref="AssetManager"/>
         /// </summary>
         /// <param name="assetRepository">An implementation of <see cref="IAssetRepository"/></param>
-        public AssetManager(IAssetRepository assetRepository)
+        /// <param name="countryRepository">An implementation of <see cref="ICountryRepository"/></param>
+        public AssetManager(IAssetRepository assetRepository, ICountryRepository countryRepository)
         {
             _assetRepository = assetRepository;
+            _countryRepository = countryRepository;
         }
 
         /// <summary>
@@ -46,7 +49,7 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
         /// <returns></returns>
         public async Task<IOperationResult<Asset>> AddNewAsset(Asset asset)
         {
-            AssetValidator validator = new ();
+            AssetValidator validator = new (_countryRepository);
             
             ValidationResult result = await validator.ValidateAsync(asset);
 
@@ -67,7 +70,7 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
         /// <returns></returns>
         public async Task<IOperationResult<Asset>> UpdateAsset(Asset asset)
         {
-            AssetValidator validator = new();
+            AssetValidator validator = new(_countryRepository);
 
             ValidationResult result = await validator.ValidateAsync(asset);
             
