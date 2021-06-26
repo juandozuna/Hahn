@@ -1,6 +1,8 @@
 namespace Hahn.ApplicationProcess.February2021.Domain.Managers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
     using FluentValidation.Results;
@@ -26,6 +28,17 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
         {
             _assetRepository = assetRepository;
             _countryRepository = countryRepository;
+        }
+
+        /// <summary>
+        /// Gets all assets in DB
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IOperationResult<ISet<Asset>>> GetAll()
+        {
+            var assets = await _assetRepository.GetAll();
+            
+            return OperationResult<ISet<Asset>>.Ok(assets.ToHashSet());
         }
 
         /// <summary>

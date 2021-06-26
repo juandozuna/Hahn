@@ -33,6 +33,13 @@ namespace Hahn.ApplicationProcess.February2021.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
+            services.AddCors(opts =>
+            {
+                opts.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
+            
             ConfigureDependencies(services);
             
             services.AddControllers();
@@ -65,6 +72,8 @@ namespace Hahn.ApplicationProcess.February2021.Web
                 app.UseSwaggerUI(c =>
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hahn.ApplicationProcess.February2021.Web v1"));
             }
+
+            app.UseCors();
 
             app.UseHttpsRedirection();
 

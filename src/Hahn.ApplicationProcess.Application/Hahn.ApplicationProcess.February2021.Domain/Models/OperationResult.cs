@@ -42,7 +42,8 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Models
 
         /// <summary>
         /// Created failed instance
-        /// </summary>
+        /// </s'
+        /// ummary>
         /// <param name="message"></param>
         /// <returns></returns>
         public static OperationResult<T> Fail(string message) => new(default(T), message, false);
@@ -62,9 +63,10 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Models
         /// <returns></returns>
         public static OperationResult<T> ValidationFailed(ValidationResult result)
         {
-            string message = result.Errors.Aggregate(string.Empty, 
-                (current, failure) => current + $"* {failure.PropertyName}: ${failure.ErrorMessage} \n");
+            var message = result.Errors.Aggregate(string.Empty, 
+                (current, failure) => current + $"${failure.ErrorMessage}, ");
 
+            message = message.TrimEnd(',');
             return new OperationResult<T>(default(T), message, false);
         }
     }

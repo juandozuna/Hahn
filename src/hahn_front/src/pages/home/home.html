@@ -1,0 +1,41 @@
+<template>
+  <div>
+    <h1 i18n="assets" class="text-center">Assets</h1>
+
+    <div class="container">
+      <div if.bind="assets.length === 0">
+        <h3 class="display-4" t="noContent">No Content Found</h3>
+      </div>
+      <table if.bind="assets.length !== 0" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" t="nameHeader">Name</th>
+            <th scope="col" t="countryHeader">Country</th>
+            <th scope="col" t="emailHeader">Email</th>
+            <th scope="col" t="purchaseHeader">Purchased Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="asset of assets">
+            <td>${asset.id}</td> 
+            <td>${asset.assetName}</td> 
+            <td>${asset.countryOfDepartment}</td> 
+            <td>${asset.emailAddressOfDepartment}</td> 
+            <td>${asset.purchaseDate}</td> 
+            <td>
+              <button click.delegate="update(asset.id)">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button click.delegate="delete(asset.id)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
+

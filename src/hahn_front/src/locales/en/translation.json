@@ -1,0 +1,10 @@
+{
+  "home": "My Homess",
+  "assets": "Assets",
+  "nameHeader": "Name",
+  "departmentHeader": "Deparment",
+  "countryHeader": "Country",
+  "emailHeader": "Email",
+  "purchaseHeader": "Purchase Date",
+  "noContent": "No Content Found"
+}

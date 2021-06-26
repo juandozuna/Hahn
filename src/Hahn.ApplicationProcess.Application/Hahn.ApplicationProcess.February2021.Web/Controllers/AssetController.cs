@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hahn.ApplicationProcess.February2021.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Domain;
     using Domain.Managers;
@@ -24,6 +25,26 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         public AssetController(AssetManager assetManager)
         {
             _assetManager = assetManager;
+        }
+        
+        /// <summary>
+        /// Gets an asset by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(ISet<Asset>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IOperationResult<Asset>), StatusCodes.Status400BadRequest)]
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var result = await _assetManager.GetAll();
+
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result);
         }
 
 
@@ -52,7 +73,7 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         /// </summary>
         /// <param name="asset"></param>
         /// <returns></returns>
-        [ProducesResponseType(typeof(CreateAssetResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CreateAssetResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(IOperationResult<Asset>), StatusCodes.Status400BadRequest)]
         [HttpPost]
         public async Task<IActionResult> CreateAsset([FromBody] Asset asset)
