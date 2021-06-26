@@ -9,7 +9,12 @@ export class App {
     config.options.pushState = true;
     config.options.root = '/';
     config.map([
-      {route: '', moduleId: PLATFORM.moduleName('pages/home/home')}
+      {route: '', moduleId: PLATFORM.moduleName('pages/home/home')},
+      {
+        route: 'assets/:id',
+        title: "Assets",
+        moduleId: PLATFORM.moduleName('pages/asset/asset-page')
+      }
     ]);
     this.router = router;
   }

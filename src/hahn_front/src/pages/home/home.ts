@@ -1,14 +1,15 @@
 import { Asset } from '../../models/asset.model';
 import { AssetService } from '../../services/asset.service';
 import { inject } from 'aurelia-dependency-injection';
+import { Router } from 'aurelia-router';
 
-@inject(AssetService)
+@inject(AssetService, Router)
 export class Home {
   static inject = [AssetService];
 
   assets: Asset[] = [];
 
-  constructor(private assetService: AssetService) {
+  constructor(private assetService: AssetService, private router: Router) {
     this.assets = [];
   }
 
@@ -21,6 +22,10 @@ export class Home {
     console.log('assets', result);
     this.assets = [...result];
   }
+
+  create() {
+    this.router.navigate(`#/assets/0`);
+  }
   
   delete(id: number): void {
     console.log('DELETE', id);
@@ -28,5 +33,6 @@ export class Home {
 
   update(id: number): void {
     console.log('UPDATE', id);
+    this.router.navigate(`#/assets/${id}`);
   }
 }

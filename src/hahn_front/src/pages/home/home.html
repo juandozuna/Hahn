@@ -1,7 +1,18 @@
 <template>
   <div>
-    <h1 i18n="assets" class="text-center">Assets</h1>
-
+    <div class="container">  
+      <div class="row" style="margin-top: 15px;">
+        <div class="col">
+          <h1 i18n="assets">Assets</h1>
+        </div>
+        <div class="col">
+          <button click.delegate="create()" class="btn btn-primary" style="float: right;" t="create">
+            Create
+          </button>
+        </div>
+      </div>
+    </div>
+      
     <div class="container">
       <div if.bind="assets.length === 0">
         <h3 class="display-4" t="noContent">No Content Found</h3>
