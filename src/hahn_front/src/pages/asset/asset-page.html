@@ -11,25 +11,25 @@
           <form>
             <div class="mb-3">
               <label  class="form-label" t="name">Asset Name</label>
-              <input type="text" class="form-control" value.bind="asset.assetName"/>
+              <input type="text" class="form-control" value.two-way="asset.assetName"/>
             </div>
             <div class="mb-3">
               <label class="form-label" t="deparment">Department</label>
-              <select class="form-select" aria-label="Departments" value.bind="asset.department">
+              <select class="form-select" aria-label="Departments" value.two-way="asset.department">
                 <option repeat.for="department of departments" value.bind="department.text">${department.text}</option>
               </select>
             </div>
             <div class="mb-3">
               <label class="form-label" t="countryOfDepartment">Country Of Department</label>
-              <input type="text" class="form-control" value.bind="asset.countryOfDeparment"/>
+              <input type="text" class="form-control" value.two-way="asset.countryOfDeparment"/>
             </div>
             <div class="mb-3">
               <label class="form-label" t="emailAddressOfDepartment">Email Address of Deparment</label>
-              <input type="email" class="form-control" value.bind="asset.emailAddressOfDepartment"/>
+              <input type="email" class="form-control" value.two-way="asset.emailAddressOfDepartment"/>
             </div>
             <div class="mb-3">
               <label class="form-label" t="purchaseDate">Purchase Date</label>
-              <input type="date" class="form-control" value.bind="asset.purchaseDate"/>
+              <input type="date" class="form-control" value.two-way="asset.purchaseDate"/>
             </div>
             <button type="button" class="btn btn-success" click.delegate="onSubmit()">Submit</button>
           </form>

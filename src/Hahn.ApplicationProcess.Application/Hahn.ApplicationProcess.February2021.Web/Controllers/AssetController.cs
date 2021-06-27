@@ -78,6 +78,8 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAsset([FromBody] Asset asset)
         {
+            if (asset.Id > 0) return BadRequest(new {message = "Id can't be greater then 0"});
+            
             var result = await _assetManager.AddNewAsset(asset);
 
             if (!result.Success)
@@ -96,6 +98,52 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
             return Created("http://localhost:4001/assets/1", response);
         }
         
-        
+        /// <summary>
+        /// Replaces an asset, JSON must have ID property set
+        /// </summary>
+        /// <param name="asset"></param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(CreateAssetResponse), StatusCodes.Status202Accepted)]
+        [ProducesResponseType(typeof(IOperationResult<Asset>), StatusCodes.Status400BadRequest)]
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsset([FromBody] Asset asset)
+        {
+            if (asset.Id == 0) return BadRequest(new {message = "Id must be greater than 0"});
+            
+            var result = await _assetManager.UpdateAsset(asset);
+
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+            var data = result.Data;
+
+            return Accepted();
+        }
+
+        /// <summary>
+        /// Deletes a complete asset
+        /// </summary>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(CreateAssetResponse), StatusCodes.Status202Accepted)]
+        [ProducesResponseType(typeof(IOperationResult<Asset>), StatusCodes.Status400BadRequest)]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsset([FromRoute] int id)
+        {
+            if (id == 0) return BadRequest(new {message = "Id must be greater than 0"});
+
+            IOperationResult<Asset> result = await _assetManager.RemoveAsset(id);
+
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+            
+            Asset data = result.Data;
+
+            return Accepted(data);
+        }
+
     }
 }
