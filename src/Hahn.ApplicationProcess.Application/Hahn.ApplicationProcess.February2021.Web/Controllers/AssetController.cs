@@ -16,15 +16,15 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
     [Route("assets")]
     public class AssetController : ControllerBase
     {
-        private readonly AssetManager _assetManager;
+        private readonly AssetService _assetService;
 
         /// <summary>
         /// Creates a new instance of <see cref="AssetController"/>
         /// </summary>
-        /// <param name="assetManager">An instance of <see cref="AssetManager"/></param>
-        public AssetController(AssetManager assetManager)
+        /// <param name="assetService">An instance of <see cref="AssetService"/></param>
+        public AssetController(AssetService assetService)
         {
-            _assetManager = assetManager;
+            _assetService = assetService;
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _assetManager.GetAll();
+            var result = await _assetService.GetAll();
 
             if (result.Success)
             {
@@ -58,7 +58,7 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAssetById([FromRoute] int id)
         {
-            var result = await _assetManager.GetById(id);
+            var result = await _assetService.GetById(id);
 
             if (result.Success)
             {
@@ -80,7 +80,7 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         {
             if (asset.Id > 0) return BadRequest(new {message = "Id can't be greater then 0"});
 
-            var result = await _assetManager.AddNewAsset(asset);
+            var result = await _assetService.AddNewAsset(asset);
 
             if (!result.Success)
             {
@@ -110,7 +110,7 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         {
             if (asset.Id == 0) return BadRequest(new {message = "Id must be greater than 0"});
 
-            var result = await _assetManager.UpdateAsset(asset);
+            var result = await _assetService.UpdateAsset(asset);
 
             if (!result.Success)
             {
@@ -133,7 +133,7 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         {
             if (id == 0) return BadRequest(new {message = "Id must be greater than 0"});
 
-            IOperationResult<Asset> result = await _assetManager.RemoveAsset(id);
+            IOperationResult<Asset> result = await _assetService.RemoveAsset(id);
 
             if (!result.Success)
             {

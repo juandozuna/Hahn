@@ -14,17 +14,17 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
     /// <summary>
     /// Business Logic for the asset entity
     /// </summary>
-    public sealed class AssetManager
+    public sealed class AssetService
     {
         private readonly IAssetRepository _assetRepository;
         private readonly ICountryRepository _countryRepository;
 
         /// <summary>
-        /// Creates a new instance of <see cref="AssetManager"/>
+        /// Creates a new instance of <see cref="AssetService"/>
         /// </summary>
         /// <param name="assetRepository">An implementation of <see cref="IAssetRepository"/></param>
         /// <param name="countryRepository">An implementation of <see cref="ICountryRepository"/></param>
-        public AssetManager(IAssetRepository assetRepository, ICountryRepository countryRepository)
+        public AssetService(IAssetRepository assetRepository, ICountryRepository countryRepository)
         {
             _assetRepository = assetRepository;
             _countryRepository = countryRepository;

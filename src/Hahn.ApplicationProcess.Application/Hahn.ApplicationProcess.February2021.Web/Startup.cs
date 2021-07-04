@@ -53,7 +53,7 @@ namespace Hahn.ApplicationProcess.February2021.Web
             services.AddScoped<IAssetRepository, AssetRepository>();
             services.AddScoped<ICountryRepository, CountryRepository>();
 
-            services.AddScoped<AssetManager, AssetManager>();
+            services.AddScoped<AssetService, AssetService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
