@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 
 namespace Hahn.ApplicationProcess.February2021.Domain.Models
 {
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
     using Enums;
 
     /// <summary>

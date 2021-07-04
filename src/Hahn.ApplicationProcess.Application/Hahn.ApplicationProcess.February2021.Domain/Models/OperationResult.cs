@@ -1,7 +1,5 @@
 namespace Hahn.ApplicationProcess.February2021.Domain.Models
 {
-    using System.Collections.Generic;
-    using System.Data.Common;
     using System.Linq;
     using FluentValidation.Results;
 

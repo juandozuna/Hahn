@@ -69,6 +69,8 @@ namespace Hahn.ApplicationProcess.February2021.Web
 
             app.UseCors();
 
+            app.ConfigureExceptionHandler();
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();
