@@ -38,10 +38,10 @@ namespace Hahn.ApplicationProcess.February2021.Data.Repositories
 
             if (!response.IsSuccessStatusCode) throw new InvalidOperationException("Unsuccessful Request");
 
-             var responseStream = await response.Content.ReadAsStringAsync();
-             var deserialized = JsonConvert.DeserializeObject<IEnumerable<Country>>(responseStream);
+            var responseStream = await response.Content.ReadAsStringAsync();
+            var deserialized = JsonConvert.DeserializeObject<IEnumerable<Country>>(responseStream);
 
-             return deserialized;
+            return deserialized;
         }
 
         /// <inheritdoc />

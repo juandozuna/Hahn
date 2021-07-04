@@ -49,7 +49,7 @@ namespace Hahn.ApplicationProcess.February2021.Data.Repositories
             await Context.SaveChangesAsync();
 
             return entity.Id;
-        } 
+        }
 
         /// <inheritdoc />
         public async Task Update(T entity)

@@ -1,15 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace Hahn.ApplicationProcess.February2021.Web
@@ -17,7 +10,6 @@ namespace Hahn.ApplicationProcess.February2021.Web
     using Data;
     using Data.Repositories;
     using Domain.Managers;
-    using Domain.Models;
     using Domain.Repositories;
     using Microsoft.EntityFrameworkCore;
 
@@ -39,9 +31,9 @@ namespace Hahn.ApplicationProcess.February2021.Web
             {
                 opts.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
-            
+
             ConfigureDependencies(services);
-            
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -52,7 +44,7 @@ namespace Hahn.ApplicationProcess.February2021.Web
             services.AddDbContext<HahnDbContext>(
                 // opts => opts.UseSqlServer(Configuration.GetConnectionString("MainConnection"))
                 opts => opts.UseInMemoryDatabase("Sample")
-                );
+            );
         }
 
 

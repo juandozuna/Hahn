@@ -16,7 +16,6 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Models
     /// </summary>
     public sealed class Asset : BaseModel
     {
-
         /// <summary>
         /// Represents the name of the asset
         /// </summary>

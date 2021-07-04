@@ -10,12 +10,12 @@ namespace Hahn.ApplicationProcess.February2021.Domain
         /// Returned data if succesfull
         /// </summary>
         T Data { get; }
-        
+
         /// <summary>
         /// Tells whether request was or not succesfull
         /// </summary>
         bool Success { get; }
-        
+
         /// <summary>
         /// Response Message
         /// </summary>

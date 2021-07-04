@@ -13,6 +13,7 @@ namespace Hahn.ApplicationProcess.February2021.Data.Repositories
         /// </summary>
         /// <param name="context"></param>
         public AssetRepository(HahnDbContext context) : base(context)
-        { }
+        {
+        }
     }
 }

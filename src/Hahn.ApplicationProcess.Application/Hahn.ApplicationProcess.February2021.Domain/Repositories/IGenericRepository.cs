@@ -12,7 +12,7 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Repositories
     /// Represents the generic repository
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IGenericRepository<T> 
+    public interface IGenericRepository<T>
         where T : BaseModel
     {
         /// <summary>

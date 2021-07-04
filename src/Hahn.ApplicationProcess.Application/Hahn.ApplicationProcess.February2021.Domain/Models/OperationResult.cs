@@ -12,13 +12,13 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Models
     internal sealed class OperationResult<T> : IOperationResult<T>
     {
         /// <inheritdoc />
-        public T Data { get;}
+        public T Data { get; }
 
         /// <inheritdoc />
-        public bool Success { get;}
+        public bool Success { get; }
 
         /// <inheritdoc />
-        public string Message { get;}
+        public string Message { get; }
 
         private OperationResult(T data, string message, bool success)
         {
@@ -63,7 +63,7 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Models
         /// <returns></returns>
         public static OperationResult<T> ValidationFailed(ValidationResult result)
         {
-            var message = result.Errors.Aggregate(string.Empty, 
+            var message = result.Errors.Aggregate(string.Empty,
                 (current, failure) => current + $"${failure.ErrorMessage}, ");
 
             message = message.TrimEnd(',');

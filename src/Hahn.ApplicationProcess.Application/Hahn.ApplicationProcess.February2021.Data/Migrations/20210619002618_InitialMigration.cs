@@ -20,10 +20,7 @@ namespace Hahn.ApplicationProcess.February2021.Data.Migrations
                     PurchaseDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     Broken = table.Column<bool>(type: "bit", nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Assets", x => x.Id);
-                });
+                constraints: table => { table.PrimaryKey("PK_Assets", x => x.Id); });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

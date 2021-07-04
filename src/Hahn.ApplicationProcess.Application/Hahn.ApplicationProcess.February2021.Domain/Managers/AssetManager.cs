@@ -37,7 +37,7 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
         public async Task<IOperationResult<ISet<Asset>>> GetAll()
         {
             var assets = await _assetRepository.GetAll();
-            
+
             return OperationResult<ISet<Asset>>.Ok(assets.ToHashSet());
         }
 
@@ -62,8 +62,8 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
         /// <returns></returns>
         public async Task<IOperationResult<Asset>> AddNewAsset(Asset asset)
         {
-            AssetValidator validator = new (_countryRepository);
-            
+            AssetValidator validator = new(_countryRepository);
+
             ValidationResult result = await validator.ValidateAsync(asset);
 
             if (!result.IsValid)
@@ -72,10 +72,10 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
             }
 
             await _assetRepository.Insert(asset);
-            
+
             return OperationResult<Asset>.Ok(asset);
         }
-        
+
         /// <summary>
         /// Updates an asset
         /// </summary>
@@ -86,7 +86,7 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
             AssetValidator validator = new(_countryRepository);
 
             ValidationResult result = await validator.ValidateAsync(asset);
-            
+
             if (!result.IsValid) return OperationResult<Asset>.ValidationFailed(result);
 
             Asset oldAsset = await _getAssetById(asset.Id);
@@ -96,7 +96,7 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
             _updatePropertiesOfTrackedEntity(asset, oldAsset);
 
             await _assetRepository.Update(oldAsset);
-            
+
             return OperationResult<Asset>.Ok();
         }
 
@@ -112,16 +112,16 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
             if (asset == null) OperationResult<Asset>.Fail("Not Found");
 
             await _assetRepository.Delete(asset);
-            
+
             return OperationResult<Asset>.Ok(asset);
         }
-        
+
         private static void _updatePropertiesOfTrackedEntity(Asset newAsset, Asset oldAsset)
         {
             Type type = newAsset.GetType();
-            
+
             PropertyInfo[] properties = type.GetProperties();
-            
+
             foreach (var info in properties)
             {
                 info.SetValue(oldAsset, info.GetValue(newAsset));

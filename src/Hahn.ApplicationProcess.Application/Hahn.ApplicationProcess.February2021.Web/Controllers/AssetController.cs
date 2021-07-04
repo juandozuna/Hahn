@@ -26,7 +26,7 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         {
             _assetManager = assetManager;
         }
-        
+
         /// <summary>
         /// Gets an asset by ID
         /// </summary>
@@ -79,7 +79,7 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         public async Task<IActionResult> CreateAsset([FromBody] Asset asset)
         {
             if (asset.Id > 0) return BadRequest(new {message = "Id can't be greater then 0"});
-            
+
             var result = await _assetManager.AddNewAsset(asset);
 
             if (!result.Success)
@@ -97,7 +97,7 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
 
             return Created("http://localhost:4001/assets/1", response);
         }
-        
+
         /// <summary>
         /// Replaces an asset, JSON must have ID property set
         /// </summary>
@@ -109,7 +109,7 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
         public async Task<IActionResult> UpdateAsset([FromBody] Asset asset)
         {
             if (asset.Id == 0) return BadRequest(new {message = "Id must be greater than 0"});
-            
+
             var result = await _assetManager.UpdateAsset(asset);
 
             if (!result.Success)
@@ -139,11 +139,10 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
             {
                 return BadRequest(result);
             }
-            
+
             Asset data = result.Data;
 
             return Accepted(data);
         }
-
     }
 }

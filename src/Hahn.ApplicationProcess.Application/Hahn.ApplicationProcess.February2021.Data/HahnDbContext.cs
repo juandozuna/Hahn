@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Hahn.ApplicationProcess.February2021.Data
+﻿namespace Hahn.ApplicationProcess.February2021.Data
 {
     using Domain.Models;
     using Microsoft.EntityFrameworkCore;
@@ -10,7 +8,6 @@ namespace Hahn.ApplicationProcess.February2021.Data
     /// </summary>
     public sealed class HahnDbContext : DbContext
     {
-
         /// <summary>
         /// Represents a list of assets
         /// </summary>
@@ -20,6 +17,8 @@ namespace Hahn.ApplicationProcess.February2021.Data
         /// Builds a new instance of the dbContext
         /// </summary>
         /// <param name="options"></param>
-        public HahnDbContext(DbContextOptions options) : base(options) { }
+        public HahnDbContext(DbContextOptions options) : base(options)
+        {
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Repositories
     /// Contract for asset repository
     /// </summary>
     public interface IAssetRepository : IGenericRepository<Asset>
-    { }
+    {
+    }
 }

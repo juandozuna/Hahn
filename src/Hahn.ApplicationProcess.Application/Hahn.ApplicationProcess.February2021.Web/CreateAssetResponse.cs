@@ -11,7 +11,7 @@ namespace Hahn.ApplicationProcess.February2021.Web
         /// Represents the asset in question
         /// </summary>
         public Asset Asset { get; set; }
-        
+
         /// <summary>
         /// Represents the URL where the asset can be found
         /// </summary>

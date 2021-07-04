@@ -34,6 +34,5 @@ namespace Hahn.ApplicationProcess.February2021.Web.Controllers
 
             return Ok(result);
         }
-        
     }
 }
