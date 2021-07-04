@@ -9,8 +9,8 @@ namespace Hahn.ApplicationProcess.February2021.Web
 {
     using Data;
     using Data.Repositories;
-    using Domain.Managers;
     using Domain.Repositories;
+    using Domain.Services;
     using Microsoft.EntityFrameworkCore;
 
     public class Startup

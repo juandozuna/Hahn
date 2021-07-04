@@ -1,4 +1,4 @@
-namespace Hahn.ApplicationProcess.February2021.Domain.Managers
+namespace Hahn.ApplicationProcess.February2021.Domain.Services
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +6,6 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Managers
     using System.Reflection;
     using System.Threading.Tasks;
     using FluentValidation.Results;
-    using Microsoft.EntityFrameworkCore.Metadata.Internal;
     using Models;
     using Repositories;
     using Validators;
