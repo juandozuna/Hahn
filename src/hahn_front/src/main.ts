@@ -10,26 +10,28 @@ export function configure(aurelia: Aurelia): void {
     .standardConfiguration()
     .feature(PLATFORM.moduleName('resources/index'));
 
-    aurelia.use.plugin(PLATFORM.moduleName('aurelia-i18n'), (instance) => {
-      const aliases = ['t', 'i18n'];
-      TCustomAttribute.configureAliases(aliases);
-      instance.i18next.use(Backend);
-      return instance.setup({
-        backend: {
-          loadPath: './locales/{{lng}}//{{ns}}.json'
-        },
-        ns: 'global',
-        defaultNS: 'global',
-        fallbackNS: false,
-        attributes: aliases,
-        lng: 'en',
-        whitelist: ['en'],
-        preload: ['en'],
-        fallbackLng: 'en',
-        debug: true
-      });
-    })
+  aurelia.use.plugin(PLATFORM.moduleName('aurelia-i18n'), (instance) => {
+    const aliases = ['t', 'i18n'];
+    TCustomAttribute.configureAliases(aliases);
+    instance.i18next.use(Backend);
+    return instance.setup({
+      backend: {
+        loadPath: './locales/{{lng}}//{{ns}}.json'
+      },
+      ns: 'global',
+      defaultNS: 'global',
+      fallbackNS: false,
+      attributes: aliases,
+      lng: 'en',
+      whitelist: ['en'],
+      preload: ['en'],
+      fallbackLng: 'en',
+      debug: true
+    });
+  });  
     
+  aurelia.use.plugin(PLATFORM.moduleName('aurelia-validation'));
+
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
   if (environment.testing) {

@@ -4,7 +4,7 @@ export interface Asset {
   id: number,
   assetName: string,
   department: AssetDeparment,
-  countryOfDeparment: string,
+  countryOfDepartment: string,
   emailAddressOfDepartment: string,
   purchaseDate: Date,
   broken: boolean

@@ -19,6 +19,7 @@
     "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.3.3",
     "aurelia-i18n": "^3.1.4",
+    "aurelia-validation": "^2.0.0-rc2",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
     "i18next": "^14.1.1",

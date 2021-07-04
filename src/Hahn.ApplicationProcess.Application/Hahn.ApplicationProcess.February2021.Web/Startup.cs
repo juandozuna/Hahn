@@ -50,7 +50,9 @@ namespace Hahn.ApplicationProcess.February2021.Web
             });
 
             services.AddDbContext<HahnDbContext>(
-                opts => opts.UseSqlServer(Configuration.GetConnectionString("MainConnection")));
+                // opts => opts.UseSqlServer(Configuration.GetConnectionString("MainConnection"))
+                opts => opts.UseInMemoryDatabase("Sample")
+                );
         }
 
 
