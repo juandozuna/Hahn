@@ -33,11 +33,11 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Services
         /// Gets all assets in DB
         /// </summary>
         /// <returns></returns>
-        public async Task<IOperationResult<ISet<Asset>>> GetAll()
+        public async Task<ISet<Asset>> GetAll()
         {
             var assets = await _assetRepository.GetAll();
 
-            return OperationResult<ISet<Asset>>.Ok(assets.ToHashSet());
+            return assets.ToHashSet();
         }
 
         /// <summary>
@@ -45,13 +45,13 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Services
         /// </summary>
         /// <param name="id">Id of the <see cref="Asset"/></param>
         /// <returns></returns>
-        public async Task<IOperationResult<Asset>> GetById(int id)
+        public async Task<Asset> GetById(int id)
         {
             var asset = await _getAssetById(id);
 
-            return asset != null
-                ? OperationResult<Asset>.Ok(asset)
-                : OperationResult<Asset>.Fail("Not Found");
+            if (asset == null) throw new KeyNotFoundException("Id was not found");
+
+            return asset;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Services
         /// </summary>
         /// <param name="asset">An instance of <see cref="Asset"/></param>
         /// <returns></returns>
-        public async Task<IOperationResult<Asset>> AddNewAsset(Asset asset)
+        public async Task<Asset> AddNewAsset(Asset asset)
         {
             AssetValidator validator = new(_countryRepository);
 
@@ -67,12 +67,12 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Services
 
             if (!result.IsValid)
             {
-                return OperationResult<Asset>.ValidationFailed(result);
+                throw new ArgumentException(result.Errors.First().ErrorMessage);
             }
 
             await _assetRepository.Insert(asset);
 
-            return OperationResult<Asset>.Ok(asset);
+            return asset;
         }
 
         /// <summary>
@@ -80,23 +80,23 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Services
         /// </summary>
         /// <param name="asset"></param>
         /// <returns></returns>
-        public async Task<IOperationResult<Asset>> UpdateAsset(Asset asset)
+        public async Task<Asset> UpdateAsset(Asset asset)
         {
             AssetValidator validator = new(_countryRepository);
 
             ValidationResult result = await validator.ValidateAsync(asset);
 
-            if (!result.IsValid) return OperationResult<Asset>.ValidationFailed(result);
+            if (!result.IsValid) throw new ArgumentException(result.Errors.First().ErrorMessage);
 
             Asset oldAsset = await _getAssetById(asset.Id);
 
-            if (oldAsset == null) return OperationResult<Asset>.Fail("No Asset Found");
+            if (oldAsset == null) throw new KeyNotFoundException("Asset was not found");
 
             _updatePropertiesOfTrackedEntity(asset, oldAsset);
 
             await _assetRepository.Update(oldAsset);
 
-            return OperationResult<Asset>.Ok();
+            return asset;
         }
 
         /// <summary>
@@ -104,15 +104,15 @@ namespace Hahn.ApplicationProcess.February2021.Domain.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<IOperationResult<Asset>> RemoveAsset(int id)
+        public async Task<Asset> RemoveAsset(int id)
         {
             var asset = await _getAssetById(id);
 
-            if (asset == null) OperationResult<Asset>.Fail("Not Found");
+            if (asset == null) throw new KeyNotFoundException("Id was not found");
 
             await _assetRepository.Delete(asset);
 
-            return OperationResult<Asset>.Ok(asset);
+            return asset;
         }
 
         private static void _updatePropertiesOfTrackedEntity(Asset newAsset, Asset oldAsset)

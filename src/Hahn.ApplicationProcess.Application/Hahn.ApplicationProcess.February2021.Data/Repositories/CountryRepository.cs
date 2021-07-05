@@ -1,16 +1,12 @@
 namespace Hahn.ApplicationProcess.February2021.Data.Repositories
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Net.Http.Json;
     using System.Threading.Tasks;
     using Domain.Models;
     using Domain.Repositories;
     using Newtonsoft.Json;
-    using JsonSerializer = System.Text.Json.JsonSerializer;
 
     /// <summary>
     /// Implementation of <see cref="ICountryRepository"/>
