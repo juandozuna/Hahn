@@ -3,8 +3,8 @@ This is the source code for the solicited application
 
 
 BACKEND
-- To execute the backend, just open the source code in Visual Studio and execute de API project
-
+- Navigate to following route in console `cd ./src/Hahn.ApplicationProcess.Application/Hahn.ApplicationProcess.February2021.Web`
+- Execute the following command `dotnet run`
 
 FRONTEND
 - Run `npm i` 
