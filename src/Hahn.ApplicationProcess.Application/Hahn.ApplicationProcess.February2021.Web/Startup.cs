@@ -34,7 +34,9 @@ namespace Hahn.ApplicationProcess.February2021.Web
 
             ConfigureDependencies(services);
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1",
